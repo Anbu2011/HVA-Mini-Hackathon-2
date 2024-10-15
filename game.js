@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         showQuestions.appendChild(questionPara)
 
         const allChoices = shuffleChoices([currentQuestion.correctAnswer, ...currentQuestion.incorrectAnswers])
-        // console.log(allChoices)
+        
         allChoices.forEach(eachChoice =>{
             const label = document.createElement('label')
             const input = document.createElement('input')
@@ -115,16 +115,19 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             const allCategoriessss = Object.keys(data)
-            allCategories = allCategoriessss.slice(0,2)
+            allCategories = allCategoriessss.slice(0,)
             showCategory(allCategories)
-            // console.log(allCategories)
+            
+        })
+        .catch(error => {
+            console.error('Error fetching all categories', error)
         })
     });
 
     //Category Select - Event Listener
     categorySelect.addEventListener('change', function() {
         selectedCategory = categorySelect.value
-        // console.log(selectedCategory)
+        
         const selectedCategoryOriginal = selectedCategory.replace(/_/g, ' ').replace(/and/g, '&')
         
         allCategories = allCategories.filter(eachCategory => eachCategory !== selectedCategoryOriginal)
@@ -182,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         playersTurn.classList.add('hidden')
         currentQuestionIndex += 1
-        // console.log(allCategories, allCategories.length)
+        
         if(currentQuestionIndex < allQuestions.length){
             showEachQuestions()
             
