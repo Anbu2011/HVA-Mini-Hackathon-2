@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trivia Game</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="players-parent center-page">
+            <div class="first-player">
+                <label class="player-label" for="">Player 1</label>
+                <input type="text" placeholder="Enter first player name">
+            </div>
+            
+            <div class="second-player">
+                <label class="player-label" for="">Player 2</label>
+                <input type="text" placeholder="Enter second player name">
+            </div>
+
+            <button class="submitPlayerName">Submit</button>
+        </div>
+
+        <!-- dropdown menu -->
+        <select id="category-select" class="hidden ">
+            <option value="">Select the category</option>
+        </select>
+        <button class="startGameButton hidden">Start Game</button>
+
+        <div class="players-turn hidden"></div>
+
+        <!-- questions and answers -->
+        <div class="show-questions hidden"></div>
+
+        <div class="continue-end-buttons center-page hidden"></div>
+
+        <div class="show-winner center-page"></div>
+
+
+        <script src="game.js"></script>
+    </body>
+</html>
